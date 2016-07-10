@@ -6,4 +6,5 @@ env:
   - CABALVER=1.24 GHCVER=8.0.2
 
 script:
-  - runhaskell FizzBuzz.hs
+  - ghc -o test Test.hs
+  - ./test
