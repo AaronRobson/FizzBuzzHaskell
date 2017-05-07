@@ -14,6 +14,9 @@ before_install:
   - travis_retry cabal update
   - if [ -n "$QC" ]; then cabal install $QC; fi
   - if [ -n "$HU" ]; then cabal install $HU; fi
+  - cabal install test-framework
+  - cabal install test-framework-hunit
+  - cabal install HUnit
 
 script:
   - cabal configure --enable-tests && cabal build && cabal test
