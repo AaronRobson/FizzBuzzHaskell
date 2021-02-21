@@ -1,23 +1,7 @@
-dist: xenial
-sudo: required
-language: c
-
-env:
-  - CABALVER=1.24 GHCVER=8.0.2
-
-before_install:
-  - travis_retry sudo add-apt-repository -y ppa:hvr/ghc
-  - travis_retry sudo apt-get update
-  - travis_retry sudo apt-get install cabal-install-$CABALVER ghc-$GHCVER
-  - export PATH=/opt/ghc/$GHCVER/bin:/opt/cabal/$CABALVER/bin:$HOME/.cabal/bin:$PATH
-  - ghc --version
-  - cabal --version
-  - travis_retry cabal update
-  - if [ -n "$QC" ]; then cabal install $QC; fi
-  - if [ -n "$HU" ]; then cabal install $HU; fi
-  - cabal install test-framework
-  - cabal install test-framework-hunit
-  - cabal install HUnit
-
-script:
-  - cabal configure --enable-tests && cabal build && cabal test
+language: haskell
+ghc:
+  - "7.6"
+  - "7.8"
+  - "7.10"
+  - "8.4"
+  - "8.6"
