@@ -51,7 +51,7 @@ executable FizzBuzzHaskell
   main-is:             Main.hs
   
   -- Modules included in this executable, other than Main.
-  -- other-modules:      
+  other-modules:      FizzBuzz
   
   -- LANGUAGE extensions used by modules in this package.
   -- other-extensions:    
@@ -68,4 +68,5 @@ executable FizzBuzzHaskell
 Test-Suite test-foo
     type:       exitcode-stdio-1.0
     main-is:    Test.hs
+    other-modules:      FizzBuzz
     build-depends: base, test-framework, test-framework-hunit, HUnit
